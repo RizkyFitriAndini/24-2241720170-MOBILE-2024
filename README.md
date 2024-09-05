@@ -1,2 +1,5 @@
 # 24-2241720170-MOBILE-2024
-Pemrograman Mobile
+Nama  : Rizky Fitri Andini
+NIM   : 2241720170
+Kelas : TI-3F
+
