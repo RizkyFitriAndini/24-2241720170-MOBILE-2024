@@ -1,6 +1,6 @@
 <table>
     <thead>
-        <th style="text-align: center;" colspan="2">Pertemuan 7</th>
+        <th style="text-align: center;" colspan="2">Pertemuan 9</th>
     </thead>
     <tbody>
         <tr>
@@ -93,3 +93,27 @@ Tambah kode pada `void main()`
 Hasil:
 ![output](./doc/18.gif)
 
+## TUGAS
+1. Selesaikan Praktikum 1 dan 2, lalu dokumentasikan dan push ke repository Anda berupa screenshot setiap hasil pekerjaan beserta penjelasannya di file README.md! Jika terdapat error atau kode yang tidak dapat berjalan, silakan Anda perbaiki sesuai tujuan aplikasi dibuat!
+2. Gabungkan hasil praktikum 1 dengan hasil praktikum 2 sehingga setelah melakukan pengambilan foto, dapat dibuat filter carouselnya!
+Copy paste file filter pada praktikum 2 ke praktikum 1
+![image](./doc/22.png)
+Ubah pada `file_carousel.dart`
+![image](./doc/19.png)
+![image](./doc/20.png)
+Ubah pada `displaypicture_screen.dart`
+![image](./doc/21.png)
+Hasil:
+![output](./doc/23.gif)
+
+3. Jelaskan maksud void async pada praktikum 1?
+Maksud void sync pada praktikum 1 untuk mengambil foto menggunakan kamera perangkat:
+- `WidgetsFlutterBinding.ensureInitialized();` memastikan plugin kamera siap digunakan sebelum aplikasi berjalan.
+- `availableCameras()` mengembalikan daftar kamera yang tersedia pada perangkat, seperti kamera depan dan belakang
+- `cameras.first` memilih kamera pertama dari daftar
+- `runApp()` menjalankan aplikasi dengan TakePictureScreen, yang menerima kamera pertama sebagai input untuk menangkap gambar
+
+4. Jelaskan fungsi dari anotasi @immutable dan @override ?
+- `@immutable` digunakan untuk menandai bahwa semua properti dalam suatu kelas harus bersifat immutable (tidak bisa diubah setelah inisialisasi). Anotasi ini sering digunakan pada kelas widget yang stateless
+- `@override` digunakan untuk menunjukkan bahwa sebuah metode (fungsi) di dalam suatu kelas mengganti atau meng-override metode dari kelas induknya
+5. Kumpulkan link commit repository GitHub Anda kepada dosen yang telah disepakati!

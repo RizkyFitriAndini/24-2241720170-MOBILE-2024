@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-import 'dart:io';
 import 'package:kamera_flutter/widget/displaypicture_screen.dart';
 
 // A screen that allows users to take a picture using a given camera.
