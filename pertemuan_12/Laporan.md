@@ -26,3 +26,8 @@ Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studi
 ![image](./doc/03.png)
 ### Langkah 4: Tambah variabel colors
 ![image](./doc/04.png)
+### Langkah 5: Tambah method getColors()
+![image](./doc/05.png)
+### Langkah 6: Tambah perintah yield*
+![image](./doc/06.png)
+>Perintah `yield` digunakan untuk menghasilkan nilai sementara dari sebuah fungsi generator dalam Dart, memungkinkan fungsi tersebut untuk menghentikan sementara eksekusinya dan melanjutkan kembali saat nilai berikutnya diminta. Dalam kode tersebut, fungsi `getColors()` adalah fungsi generator yang mengembalikan stream dari nilai warna (`Color`) secara periodik. Dengan menggunakan `Stream.periodic`, fungsi ini menghasilkan nilai baru setiap detik, di mana warna diambil dari daftar `colors` berdasarkan indeks yang dihitung dari waktu (`t % colors.length`). 
