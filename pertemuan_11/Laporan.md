@@ -1,6 +1,6 @@
 <table>
     <thead>
-        <th style="text-align: center;" colspan="2">Pertemuan 10</th>
+        <th style="text-align: center;" colspan="2">Pertemuan 11</th>
     </thead>
     <tbody>
         <tr>
