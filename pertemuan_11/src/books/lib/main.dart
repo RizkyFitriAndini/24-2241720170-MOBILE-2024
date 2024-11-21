@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
+import 'package:async/async.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +34,7 @@ class FuturePage extends StatefulWidget {
 class _FuturePageState extends State<FuturePage> {
   String result = '';
   bool isLoading = false;
+  late Completer completer;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,26 +45,10 @@ class _FuturePageState extends State<FuturePage> {
         child: Column(children: [
           const Spacer(),
           ElevatedButton(
-            child: const Text('GO!'),
-            onPressed: () {
-              setState(() {
-                isLoading = true;
-              });
-              Future.delayed(const Duration(seconds: 1)).then(((value) {
-                getData().then((value) {
-                  result = value.body.toString().substring(0, 450);
-                  setState(() {
-                    isLoading = false;
-                  });
-                }).catchError((e) {
-                  result = "An error occured $e";
-                  setState(() {
-                    isLoading = false;
-                  });
-                });
-              }));
-            },
-          ),
+              child: Text('GO!'),
+              onPressed: () {
+                returnFG();
+              }),
           const Spacer(),
           isLoading ? const CircularProgressIndicator() : Text(result),
           const Spacer(),
@@ -70,11 +56,68 @@ class _FuturePageState extends State<FuturePage> {
       ),
     );
   }
-}
 
-Future<Response> getData() async {
-  const authority = 'www.googleapis.com';
-  const path = '/books/v1/volumes/EoNqEAAAQBAJ';
-  Uri url = Uri.https(authority, path);
-  return await http.get(url);
+  Future getNumber() {
+    completer = Completer<int>();
+    calculate();
+    return completer.future;
+  }
+
+  Future calculate() async {
+    try {
+      await Future.delayed(const Duration(seconds: 5));
+      completer.complete(42);
+    } catch (e) {
+      completer.completeError({});
+    }
+  }
+
+  Future<Response> getData() async {
+    const authority = 'www.googleapis.com';
+    const path = '/books/v1/volumes/EoNqEAAAQBAJ';
+    Uri url = Uri.https(authority, path);
+    return await http.get(url);
+  }
+
+  Future<int> returnOneAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 1;
+  }
+
+  Future<int> returnTwoAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 2;
+  }
+
+  Future<int> returnThreeAsync() async {
+    await Future.delayed(const Duration(seconds: 3));
+    return 3;
+  }
+
+  Future count() async {
+    int total = 0;
+    total = await returnOneAsync();
+    total += await returnTwoAsync();
+    total += await returnThreeAsync();
+    setState(() {
+      result = total.toString();
+    });
+  }
+
+  void returnFG() {
+    final futures = Future.wait<int>([
+      returnOneAsync(),
+      returnTwoAsync(),
+      returnThreeAsync(),
+    ]);
+    futures.then((List<int> value) {
+      int total = 0;
+      for (var element in value) {
+        total += element;
+      }
+      setState(() {
+        result = total.toString();
+      });
+    });
+  }
 }
