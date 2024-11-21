@@ -1,0 +1,15 @@
+import 'package:flutter/material.dart';
+class ColorStream{
+final List<Color> colors = [
+  Colors.blueGrey,
+  Colors.amber,
+  Colors.deepPurple,
+  Colors.lightBlue,
+  Colors.teal,
+  const Color.fromARGB(255, 153, 255, 58),
+  const Color.fromARGB(255, 251, 65, 65),
+  const Color.fromARGB(255, 250, 152, 152),
+  const Color.fromARGB(255, 150, 75, 220),
+  const Color.fromARGB(255, 75, 220, 148),
+];
+}

@@ -22,3 +22,7 @@ Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studi
 ![image](./doc/01.png)
 ### Langkah 2: Buka file main.dart
 ![image](./doc/02.png)
+### Langkah 3: Buat file baru stream.dart
+![image](./doc/03.png)
+### Langkah 4: Tambah variabel colors
+![image](./doc/04.png)
