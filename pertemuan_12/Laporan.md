@@ -42,3 +42,78 @@ Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studi
 ### Langkah 11: Ubah isi Scaffold()
 ![image](./doc/11.png)
 ### Langkah 12: Run
+![image](./doc/12.gif)
+### Langkah 13: Ganti isi method changeColor()
+![image](./doc/13.png)
+>`listen` digunakan untuk menangani stream dengan cara berlangganan (subscription), di mana setiap data baru yang masuk akan diproses menggunakan callback tanpa memblokir eksekusi kode lainnya. Sebaliknya, `await for` digunakan dalam kombinasi dengan `async` untuk membaca data dari stream secara berurutan dalam bentuk loop, menunggu setiap item selesai sebelum melanjutkan. `listen` lebih cocok untuk event-driven programming dengan pengaturan tambahan seperti error handling, sedangkan `await for` lebih sederhana dan sesuai untuk memproses semua elemen stream secara terstruktur.
+
+## Praktikum 2: Stream controllers dan sinks
+Setelah Anda menyelesaikan praktikum 1, Anda dapat melanjutkan praktikum 2 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.
+### Langkah 1: Buka file stream.dart
+![image](./doc/14.png)
+### Langkah 2: Tambah class NumberStream
+![image](./doc/15.png)
+### Langkah 3: Tambah StreamController
+![image](./doc/16.png)
+### Langkah 4: Tambah method addNumberToSink
+![image](./doc/17.png)
+### Langkah 5: Tambah method close()
+![image](./doc/18.png)
+### Langkah 6: Buka main.dart
+![image](./doc/19.png)
+### Langkah 7: Tambah variabel
+![image](./doc/20.png)
+### Langkah 8: Edit initState()
+![image](./doc/21.png)
+### Langkah 9: Edit dispose()
+![image](./doc/22.png)
+### Langkah 10: Tambah method addRandomNumber()
+![image](./doc/23.png)
+### Langkah 11: Edit method build()
+![image](./doc/24.png)
+### Langkah 12: Run
+![image](./doc/25.gif)
+>Langkah 8 memastikan bahwa stream dapat mendengarkan data baru, sedangkan Langkah 10 menyediakan mekanisme untuk menambahkan data tersebut ke dalam stream. Kombinasi keduanya memungkinkan aplikasi untuk mendukung interaksi pengguna yang dinamis dengan data real-time.
+### Langkah 13: Buka stream.dart
+![image](./doc/26.png)
+### Langkah 14: Buka main.dart
+![image](./doc/27.png)
+### Langkah 15: Edit method addRandomNumber()
+![image](./doc/28.png)
+>- addError(): Menambahkan error ke dalam aliran data.
+>- Listener dengan onError: Menangkap error dari stream dan memperbarui UI untuk menunjukkan adanya kesalahan.
+>- addRandomNumber(): Mengubah fungsinya untuk memicu error ke dalam stream, menggantikan penambahan angka acak.
+## Praktikum 3: Injeksi data ke streams
+Setelah Anda menyelesaikan praktikum 2, Anda dapat melanjutkan praktikum 3 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.
+### Langkah 1: Buka main.dart
+![image](./doc/29.png)
+### Langkah 2: Tambahkan kode ini di initState
+![image](./doc/31.png)
+### Langkah 3: Tetap di initState
+![image](./doc/30.png)
+### Langkah 4: Run
+![image](./doc/32.gif)
+>Langkah-langkah tersebut menambahkan fitur transformasi pada sebuah Stream di aplikasi Dart. Pertama, dengan mendeklarasikan variabel `transformer` sebagai `StreamTransformer`, kita membuat objek yang akan mengubah data dalam stream. Di dalam `initState`, transformer diatur untuk mengalikan nilai yang diterima dengan 10 di bagian `handleData`, dan menetapkan nilai -1 jika terjadi error di bagian `handleError`. Langkah terakhir adalah menghubungkan transformer ke stream yang sedang diawasi. Saat data diterima, transformasi akan diterapkan. Jika terjadi kesalahan, penanganan error akan mengubah nilai `lastNumber` menjadi -1, yang menandakan adanya masalah pada stream. Ini memberikan kontrol lebih dalam mengelola data masuk dan menangani error selama proses observasi stream.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
