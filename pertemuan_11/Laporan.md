@@ -124,3 +124,99 @@ Anda dapat menggunakan FutureGroup dengan Future.wait seperti kode berikut.
 ![output](./doc/23.png)
 >Perbedaan antara langkah 1 dan langkah 3 terletak pada cara mengelola beberapa future. Pada langkah 1, digunakan FutureGroup untuk menangani beberapa future, di mana setiap future ditambahkan menggunakan metode `add`, dan `close` menandakan bahwa tidak ada future tambahan yang akan ditambahkan. Sebaliknya, langkah 3 memanfaatkan Future.wait untuk menggabungkan beberapa future menjadi satu future tunggal yang menyelesaikan proses setelah semua future selesai dijalankan.
 ## Praktikum 5
+Setelah Anda menyelesaikan praktikum 4, Anda dapat melanjutkan praktikum 5 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.
+### Langkah 1
+Tambahkan method ini ke dalam class _FuturePageState
+![image](./doc/25.png)
+### Langkah 2
+Ganti dengan kode berikut
+![image](./doc/26.png)
+### Langkah 3
+Run dan klik tombol GO!
+![output](./doc/27.gif)
+### Langkah 4
+Tambahkan kode ini di dalam class _FutureStatePage
+![image](./doc/28.png)
+![output](./doc/29.gif)
+>`returnError()` mensimulasikan fungsi asinkron yang melempar error setelah jeda 2 detik tanpa menangani error tersebut. Sebaliknya, `handleError()` bertugas menangkap error dari `returnError()` menggunakan blok `try-catch`, menyimpan pesan error ke variabel `result`, dan memastikan tindakan akhir tetap dilakukan melalui blok `finally`. Singkatnya, `returnError()` menghasilkan error, sementara `handleError()` mengelola dan menangani error tersebut.
+## Praktikum 6
+Setelah Anda menyelesaikan praktikum 5, Anda dapat melanjutkan praktikum 6 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.
+### Langkah 1
+Tambahkan plugin geolocator dengan mengetik perintah berikut di terminal.
+![image](./doc/30.png)
+### Langkah 2
+Jika Anda menargetkan untuk platform Android, maka tambahkan baris kode berikut di file android/app/src/main/androidmanifest.xml
+![image](./doc/31.png)
+### Langkah 3
+Tambahkan file baru ini di folder lib project Anda.
+![image](./doc/32.png)
+### Langkah 4
+Buat class LocationScreen di dalam file geolocation.dart
+### Langkah 5: Isi kode geolocation.dart
+![image](./doc/33.png)
+### Langkah 6
+Panggil screen baru tersebut di file main Anda seperti berikut.
+![image](./doc/34.png)
+### Langkah 7
+Run project Anda di device atau emulator (bukan browser), maka akan tampil seperti berikut ini.
+![output](./doc/35.gif)
+### Langkah 8
+Tambahkan widget loading seperti kode berikut. Lalu hot restart, perhatikan perubahannya.
+![image](./doc/36.png)
+![image](./doc/37.png)
+![output](./doc/38.gif)
+>Iya, karena mengizinkan permintaan untuk mengakses lokasi.
+## Praktikum 7
+Setelah Anda menyelesaikan praktikum 6, Anda dapat melanjutkan praktikum 7 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.
+### Langkah 1
+Buka file geolocation.dart kemudian ganti isi method dengan kode ini.
+![image](./doc/37.png)
+### Langkah 2
+Tambah variabel ini di class _LocationScreenState
+![image](./doc/44.png)
+### Langkah 3
+Tambah method ini dan set variabel position
+![image](./doc/39.png)
+### Langkah 4
+Ketik kode berikut dan sesuaikan. Kode lama bisa Anda comment atau hapus.
+![image](./doc/40.png)
+>Ya, ada perbedaan dalam UI dibandingkan dengan pendekatan sebelumnya yang mungkin menggunakan pemanggilan manual terhadap future dan setState untuk mengelola perubahan UI. FutureBuilder memberikan pengalaman yang lebih reaktif, terstruktur, dan efisien untuk mengintegrasikan data asinkron ke dalam UI.
+![output](./doc/41.gif)
+### Langkah 5
+Tambahkan kode berikut untuk menangani ketika terjadi error. Kemudian hot restart.
+![image](./doc/42.png)
+>Tidak ada perubahan pada UI karena tampilannya tetap sama. Perbedaan utama terletak pada cara penanganan error. Namun, dalam program ini, tidak ada error yang terjadi sehingga kode langsung mengeksekusi perintah `return` tanpa melewati blok penanganan error.
+![output](./doc/43.gif)
+## Praktikum 8
+Setelah Anda menyelesaikan praktikum 7, Anda dapat melanjutkan praktikum 8 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.
+### Langkah 1
+Buatlah file baru navigation_first.dart di project lib Anda.
+![image](./doc/45.png)
+### Langkah 2
+Isi kode navigation_first.dart
+![image](./doc/46.png)
+### Langkah 3
+Buatlah file baru navigation_second.dart di project lib Anda.
+![image](./doc/47.png)
+### Langkah 4
+Edit main.dart
+![image](./doc/48.png)
+### Langkah 5
+Lakukan Run
+>Ketika tombol ditekan, `Navigator.pop` mengembalikan nilai warna yang telah dipilih ke halaman pertama, yang kemudian memperbarui tampilannya agar sesuai dengan warna baru tersebut.
+![output](./doc/49.gif)
+## Praktikum 9
+Setelah Anda menyelesaikan praktikum 8, Anda dapat melanjutkan praktikum 9 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.
+### Langkah 1
+Buat file baru navigation_dialog.dart
+![image](./doc/50.png)
+### Langkah 2
+Isi kode navigation_dialog.dart
+![image](./doc/51.png)
+### Langkah 3
+Edit main.dart
+![image](./doc/52.png)
+### Langkah 4
+Lakukan Run
+>Ketika tombol "Change Color" ditekan, sebuah pop-up muncul untuk memilih warna yang diinginkan. Misalnya, jika pengguna memilih warna merah, latar belakang akan berubah menjadi merah. Hal ini terjadi karena `Navigator.pop` mengembalikan nilai warna yang dipilih ke halaman pertama, sehingga tampilan halaman tersebut diperbarui untuk mencerminkan warna baru.
+![output](./doc/53.gif)

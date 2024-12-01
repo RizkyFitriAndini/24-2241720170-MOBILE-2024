@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'package:async/async.dart';
+import 'package:books/navigation_dialog.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const FuturePage(),
+     home: const NavigationDialog(),
     );
   }
 }
@@ -47,7 +48,15 @@ class _FuturePageState extends State<FuturePage> {
           ElevatedButton(
               child: Text('GO!'),
               onPressed: () {
-                returnFG();
+                  returnError().then((value) {
+                setState(() {
+                  result = 'Success';
+                });
+              }).catchError((onError) {
+                setState(() {
+                  result = onError.toString();
+                });
+              }).whenComplete(() => print('Complete'));
               }),
           const Spacer(),
           isLoading ? const CircularProgressIndicator() : Text(result),
@@ -55,6 +64,11 @@ class _FuturePageState extends State<FuturePage> {
         ]),
       ),
     );
+  }
+
+  Future returnError() async {
+    await Future.delayed(const Duration(seconds: 2));
+    throw Exception('Something terrible happened!');
   }
 
   Future getNumber() {
@@ -102,6 +116,17 @@ class _FuturePageState extends State<FuturePage> {
     setState(() {
       result = total.toString();
     });
+  }
+  Future handleError() async {
+    try {
+      await returnError();
+    } catch (error) {
+      setState(() {
+        result = error.toString();
+      });
+    } finally {
+      print('Complete');
+    }
   }
 
   void returnFG() {
