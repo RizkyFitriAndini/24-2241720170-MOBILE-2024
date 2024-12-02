@@ -152,3 +152,36 @@ Setelah Anda menyelesaikan praktikum 5, Anda dapat melanjutkan praktikum 6 ini. 
 ![image](./doc/56.gif)
 >- Langkah 3 : Membuat stream angka acak (0–9) yang dipancarkan setiap 1 detik menggunakan Stream.periodic.
 >- Langkah 7 : Mendengarkan data dari numberStream dan memperbarui UI setiap kali data baru diterima. Menampilkan angka terakhir dalam teks besar (font size 96) di tengah layar.
+## Praktikum 7: BLoC Pattern
+Setelah Anda menyelesaikan praktikum 6, Anda dapat melanjutkan praktikum 7 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.
+### Langkah 1: Buat Project baru
+![image](./doc/57.png)
+![image](./doc/58.png)
+### Langkah 2: Isi kode random_bloc.dart
+![image](./doc/59.png)
+### Langkah 3: Buat class RandomNumberBloc()
+![image](./doc/60.png)
+### Langkah 4: Buat variabel StreamController
+![image](./doc/61.png)
+### Langkah 5: Buat constructor
+![image](./doc/62.png)
+### Langkah 6: Buat method dispose()
+![image](./doc/63.png)
+### Langkah 7: Edit main.dart
+![image](./doc/64.png)
+### Langkah 8: Buat file baru random_screen.dart
+![image](./doc/65.png)
+### Langkah 9: Lakukan impor material dan random_bloc.dart
+![image](./doc/66.png)
+### Langkah 10: Buat StatefulWidget RandomScreen
+![image](./doc/67.png)
+### Langkah 11: Buat variabel
+![image](./doc/68.png)
+### Langkah 12: Buat method dispose()
+![image](./doc/69.png)
+### Langkah 13: Edit method build()
+![image](./doc/70.png)
+
+Run aplikasi, maka akan melihat angka acak antara angka 0 sampai 9 setiap kali menekan tombol FloactingActionButton.
+![image](./doc/71.gif)
+>Praktikum ini membahas penggunaan pola BLoC (Business Logic Component) dalam Flutter. Inti konsep BLoC terletak pada file random_bloc.dart, yang berfungsi menghasilkan stream untuk angka acak. Di dalam random_screen, variabel _bloc digunakan untuk menginisialisasi random_bloc, sementara StreamBuilder bertugas menangani stream yang dihasilkan. Selain itu, terdapat tombol Refresh yang berfungsi untuk menghasilkan angka acak baru dengan memicu fungsi sink melalui _generateRandomController di file random_bloc.dart.
