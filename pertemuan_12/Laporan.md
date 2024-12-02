@@ -117,3 +117,38 @@ Setelah Anda menyelesaikan praktikum 3, Anda dapat melanjutkan praktikum 4 ini. 
 >Pada Langkah 2, fungsi `initState` menginisialisasi aliran data (stream) menggunakan `StreamController` dari `NumberStream`. Aliran tersebut didengarkan melalui `subscription`, yang memperbarui UI saat event baru diterima, menangani error dengan mengatur `lastNumber` menjadi `-1`, dan mencetak pesan saat stream selesai. 
 >Langkah 6 memastikan resource dikelola dengan baik melalui fungsi `dispose`, di mana `subscription` dibatalkan (canceled) untuk menghentikan pendengaran stream saat widget dihapus. 
 >Langkah 9 berfungsi untuk menambahkan angka acak (0–9) ke aliran stream jika stream masih aktif, atau mengatur `lastNumber` menjadi `-1` jika stream sudah ditutup.
+## Praktikum 5: Multiple stream subscriptions
+Setelah Anda menyelesaikan praktikum 4, Anda dapat melanjutkan praktikum 5 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.
+### Langkah 1: Buka file main.dart
+![image](./doc/42.png)
+### Langkah 2: Edit initState()
+![image](./doc/44.png)
+### Langkah 3: Run
+![image](./doc/43.png)
+>Error StateError (Bad state: Stream has already been listened to.) terjadi karena mencoba (listen) sebuah single-subscription stream lebih dari satu kali. Secara default, sebuah StreamController di Dart menghasilkan single-subscription stream, yang berarti hanya satu pendengar yang diperbolehkan pada stream tersebut.
+### Langkah 4: Set broadcast stream
+![image](./doc/45.png)
+### Langkah 5: Edit method build()
+![image](./doc/46.png)
+### Langkah 6: Run
+![image](./doc/47.gif)
+## Praktikum 6: StreamBuilder
+Setelah Anda menyelesaikan praktikum 5, Anda dapat melanjutkan praktikum 6 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.
+### Langkah 1: Buat Project Baru
+![image](./doc/50.png)
+### Langkah 2: Buat file baru stream.dart
+![image](./doc/49.png)
+### Langkah 3: Tetap di file stream.dart
+![image](./doc/51.png)
+### Langkah 4: Edit main.dart
+![image](./doc/52.png)
+### Langkah 5: Tambah variabel
+![image](./doc/53.png)
+### Langkah 6: Edit initState()
+![image](./doc/54.png)
+### Langkah 7: Edit method build()
+![image](./doc/55.png)
+### Langkah 8: Run
+![image](./doc/56.gif)
+>- Langkah 3 : Membuat stream angka acak (0–9) yang dipancarkan setiap 1 detik menggunakan Stream.periodic.
+>- Langkah 7 : Mendengarkan data dari numberStream dan memperbarui UI setiap kali data baru diterima. Menampilkan angka terakhir dalam teks besar (font size 96) di tengah layar.
