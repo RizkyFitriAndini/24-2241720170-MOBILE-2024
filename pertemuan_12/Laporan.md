@@ -94,26 +94,26 @@ Setelah Anda menyelesaikan praktikum 2, Anda dapat melanjutkan praktikum 3 ini. 
 ### Langkah 4: Run
 ![image](./doc/32.gif)
 >Langkah-langkah tersebut menambahkan fitur transformasi pada sebuah Stream di aplikasi Dart. Pertama, dengan mendeklarasikan variabel `transformer` sebagai `StreamTransformer`, kita membuat objek yang akan mengubah data dalam stream. Di dalam `initState`, transformer diatur untuk mengalikan nilai yang diterima dengan 10 di bagian `handleData`, dan menetapkan nilai -1 jika terjadi error di bagian `handleError`. Langkah terakhir adalah menghubungkan transformer ke stream yang sedang diawasi. Saat data diterima, transformasi akan diterapkan. Jika terjadi kesalahan, penanganan error akan mengubah nilai `lastNumber` menjadi -1, yang menandakan adanya masalah pada stream. Ini memberikan kontrol lebih dalam mengelola data masuk dan menangani error selama proses observasi stream.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Praktikum 4: Subscribe ke stream events
+Setelah Anda menyelesaikan praktikum 3, Anda dapat melanjutkan praktikum 4 ini. Selesaikan langkah-langkah praktikum berikut ini menggunakan editor Visual Studio Code (VS Code) atau Android Studio atau code editor lain kesukaan Anda. Jawablah di laporan praktikum Anda pada setiap soal yang ada di beberapa langkah praktikum ini.
+### Langkah 1: Tambah variabel
+![image](./doc/33.png)
+### Langkah 2: Edit initState()
+![image](./doc/34.png)
+### Langkah 3: Tetap di initState()
+![image](./doc/35.png)
+### Langkah 4: Tambah properti onDone()
+![image](./doc/37.png)
+### Langkah 5: Tambah method baru
+![image](./doc/36.png)
+### Langkah 6: Pindah ke method dispose()
+![image](./doc/38.png)
+### Langkah 7: Pindah ke method build()
+![image](./doc/39.png)
+### Langkah 8: Edit method addRandomNumber()
+![image](./doc/40.png)
+### Langkah 9: Run
+![image](./doc/41.gif)
+>Pada Langkah 2, fungsi `initState` menginisialisasi aliran data (stream) menggunakan `StreamController` dari `NumberStream`. Aliran tersebut didengarkan melalui `subscription`, yang memperbarui UI saat event baru diterima, menangani error dengan mengatur `lastNumber` menjadi `-1`, dan mencetak pesan saat stream selesai. 
+>Langkah 6 memastikan resource dikelola dengan baik melalui fungsi `dispose`, di mana `subscription` dibatalkan (canceled) untuk menghentikan pendengaran stream saat widget dihapus. 
+>Langkah 9 berfungsi untuk menambahkan angka acak (0–9) ke aliran stream jika stream masih aktif, atau mengatur `lastNumber` menjadi `-1` jika stream sudah ditutup.
